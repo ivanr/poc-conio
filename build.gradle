@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        //classpath group: 'com.offbynull.coroutines', name: 'gradle-plugin', version: '1.5.3'
+    }
+}
+
+plugins {
+    // id 'io.freefair.lombok' version '3.8.4'
+}
+
+apply plugin: 'java'
+//apply plugin: 'coroutines'
+apply plugin: 'idea'
+
+/*
+coroutines {
+    // Uncomment if you'll be stepping through your coroutines in an IDE.
+    // debugMode = true
+}*/
+
+compileJava {
+    sourceCompatibility = '11'
+    targetCompatibility = '11'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = [
+                    "src/main"
+            ]
+        }
+    }
+}
+
+idea {
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.offbynull.coroutines', name: 'user', version: '1.5.3'
+}
